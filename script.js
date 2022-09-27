@@ -48,6 +48,9 @@
 
         // 日付表示処理
         setDate();
+
+        // ファイル読み込み
+        readFile();
     };
 
     // カレンダー作成処理
@@ -108,8 +111,24 @@
             }
             if (count > lastDate) {
                 document.getElementById('cell' + i).classList.add('notVisible');
-            }  
+            }
         }
+    };
+
+    // ファイルの読み込み処理
+    const readFile = () => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', 'data.txt', true);
+        xhr.responseType = 'blob';
+        xhr.send();
+
+        xhr.onload = () => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                console.log(reader.result);
+            }
+            reader.readAsText(xhr.response);
+        };
     };
 
     // 前月ボタンクリック時の処理
