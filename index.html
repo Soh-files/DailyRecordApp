@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アプリ</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <div class="item-container">
+                <p class="year-month" id="year-month"></p>
+            </div>
+            <div class="item-container">
+                <button class="btn" id="btnPrev">前月</button>
+                <button class="btn" id="btnNext">次月</button>
+            </div>
+        </div>
+        <div class="main-body">
+            <table class="table">
+                <thead>
+                    <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
+                </thead>
+                <tbody class="table-body" id="table-body"></tbody>
+            </table>
+        </div>
+        <div class="main-footer">
+            <input type="hidden" name="year" value="">
+            <input type="hidden" name="month" value="">
+        </div>
+    </div>
+</body>
+</html>
