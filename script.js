@@ -136,6 +136,11 @@
 
     // データ表示処理
     const readAndSetData = (dataStr) => {
+        // 表示中のデータをクリア
+        for(let i = 1; i <= 42; i++) {
+            document.getElementById('cellText' + i).innerText = '';
+        }
+
         // 読み込んだテキストを配列に変換
         const allText = dataStr.split(/\r\n|\n/);
         let tmpMonth = parseInt(hiddenMonth) + 1;
@@ -176,6 +181,8 @@
         
         // 日付再表示
         setDate();
+        // データ表示処理
+        readFile();
     });
 
     // 次月ボタンクリック時の処理
@@ -192,5 +199,7 @@
 
         // 日付再表示
         setDate();
+        // データ表示処理
+        readFile();
     });
 }()); 
