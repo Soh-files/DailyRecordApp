@@ -47,10 +47,8 @@
 
         // カレンダー作成
         setCalendar();
-
         // 日付表示処理
         setDate();
-
         // ファイル読み込み
         readFile();
     };
@@ -169,6 +167,47 @@
                 }
             }
         }
+    };
+
+    // データ保存処理
+    const saveData = () => {
+        // 今月データの配列を初期化
+        thisMonthData.length = 0;
+        
+        // 表示中のデータから配列を作成
+        for(let i = 1; i <= 42; i++) {
+            let tmpStr
+            let tmpMonth = hiddenMonth + 1;
+            let tmpDate = document.getElementById('cellDate' + i);
+            if(document.getElementById('cellText' + i).innerText === '〇') {
+                if((parseInt(hiddenMonth) + 1).toString().length === 1) {
+                    tmpMonth = '0' + (parseInt(hiddenMonth) + 1).toString();
+                }
+                if(tmpDate.length === 1) {
+                    tmpDate = '0' + tmpDate;
+                }
+                tmpStr = hiddenYear + tmpMonth + tmpDate;
+                thisMonthData.push(tmpStr);
+            }
+        }
+
+        // テキストファイルに保存する文字列の作成
+        let saveText;
+        for(let i = 0; i < updateData.length; i++) {
+            if(i === 0) {
+                saveText = updateData[i];
+            } else {
+                saveText += '\n' + updateData[i];
+            }
+        }
+        for(let i = 0; i < thisMonthData.length; i++) {
+            if(i === 0) {
+                saveText += thisMonthData[i];
+            } else {
+                saveText += '\n' + thisMonthData[i];
+            }
+        }
+        console.log(saveText);
     };
 
     // 前月ボタンクリック時の処理
