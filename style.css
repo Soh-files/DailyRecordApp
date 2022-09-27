@@ -1,5 +1,5 @@
 .container {
-    width: 300px;
+    width: 320px;
     height: 500px;
     margin: 10px auto;
     background-color: rgb(250, 244, 193);
@@ -14,7 +14,7 @@
 }
 
 .table {
-    width: 280px;
+    width: 300px;
     margin: 0 auto;
     border: 1px solid #888;
     border-collapse: collapse;
