@@ -138,9 +138,10 @@
     const readAndSetData = (dataStr) => {
         // 読み込んだテキストを配列に変換
         const allText = dataStr.split(/\r\n|\n/);
-        let month = hiddenMonth;
-        if(hiddenMonth.length === 1) {
-            month = '0' + hiddenMonth;
+        let tmpMonth = parseInt(hiddenMonth) + 1;
+        let month;
+        if(tmpMonth.toString().length === 1) {
+            month = '0' + tmpMonth.toString();
         }
         let yearMonthStr = hiddenYear + month;
         for(let i = 0; i < allText.length; i++) {
