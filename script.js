@@ -8,6 +8,8 @@
     var hiddenMonth;
     var nextMonth;
     var lastDate;
+    var thisMonthData = [];
+    var updateData = [];
     
     document.addEventListener('DOMContentLoaded', () => {
         // 初期処理
@@ -126,9 +128,37 @@
             const reader = new FileReader();
             reader.onload = () => {
                 console.log(reader.result);
+                readAndSetData(reader.result);
             }
             reader.readAsText(xhr.response);
         };
+    };
+
+    // データ表示処理
+    const readAndSetData = (dataStr) => {
+        // 読み込んだテキストを配列に変換
+        const allText = dataStr.split(/\r\n|\n/);
+        let month = hiddenMonth;
+        if(hiddenMonth.length === 1) {
+            month = '0' + hiddenMonth;
+        }
+        let yearMonthStr = hiddenYear + month;
+        for(let i = 0; i < allText.length; i++) {
+            if(allText[i].substring(0, 6) === yearMonthStr) {
+                thisMonthData.push(allText[i]);
+            } else {
+                updateData.push(allText[i]);
+            }
+        }
+
+        // 今月のデータを表示
+        for(let i = 0; i < thisMonthData.length; i++) {
+            for(let j = 1; j <= 42; j++) {
+                if(parseInt(thisMonthData[i].substring(6, 8)) === parseInt(document.getElementById('cellDate' + j).innerText)) {
+                    document.getElementById('cellText' + j).innerText = "〇";
+                }
+            }
+        }
     };
 
     // 前月ボタンクリック時の処理
