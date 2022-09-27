@@ -1,7 +1,7 @@
 .container {
-    width: 400px;
-    height: 600px;
-    margin: 20px auto;
+    width: 350px;
+    height: 500px;
+    margin: 10px auto;
     background-color: rgb(250, 244, 193);
 }
 .main-header {
@@ -14,7 +14,7 @@
 }
 
 .table {
-    width: 380px;
+    width: 330px;
     margin: 0 auto;
     border: 1px solid #888;
     border-collapse: collapse;
