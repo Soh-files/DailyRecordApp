@@ -27,6 +27,8 @@
                         document.getElementById('cellText' + i).textContent = '';
                     }
                 }
+                // データ保存処理
+                saveData();
             });
         }
     });
