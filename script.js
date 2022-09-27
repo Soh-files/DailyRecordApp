@@ -141,6 +141,10 @@
             document.getElementById('cellText' + i).innerText = '';
         }
 
+        // 配列を初期化
+        thisMonthData.length = 0;
+        updateData.length = 0;
+
         // 読み込んだテキストを配列に変換
         const allText = dataStr.split(/\r\n|\n/);
         let tmpMonth = parseInt(hiddenMonth) + 1;
