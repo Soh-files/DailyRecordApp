@@ -180,7 +180,7 @@
         for(let i = 1; i <= 42; i++) {
             let tmpStr
             let tmpMonth = hiddenMonth + 1;
-            let tmpDate = document.getElementById('cellDate' + i);
+            let tmpDate = document.getElementById('cellDate' + i).innerText;
             if(document.getElementById('cellText' + i).innerText === '〇') {
                 if((parseInt(hiddenMonth) + 1).toString().length === 1) {
                     tmpMonth = '0' + (parseInt(hiddenMonth) + 1).toString();
