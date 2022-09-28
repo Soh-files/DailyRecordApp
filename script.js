@@ -216,7 +216,7 @@
         const xhr = new XMLHttpRequest();
         xhr.open('post', 'data1.txt', true);
         xhr.setRequestHeader("Content-Type", "text/plain");
-        xhr.send(saveText);
+        xhr.send(blob);
     };
 
     // 前月ボタンクリック時の処理
