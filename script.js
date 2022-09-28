@@ -215,6 +215,7 @@
         // サーバのテキストファイルに保存
         const xhr = new XMLHttpRequest();
         xhr.open('post', 'data.txt', true);
+        xhr.setRequestHeader("Content-Type", "text/plain");
         console.log(saveText);
         xhr.send(blob);
     };
