@@ -209,7 +209,14 @@
                 saveText += '\n' + thisMonthData[i];
             }
         }
+        // Blobに変換
+        const blob = new Blob([saveText], {type: 'text/plain'});
+
+        // サーバのテキストファイルに保存
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', 'data.txt', true);
         console.log(saveText);
+        xhr.send(blob);
     };
 
     // 前月ボタンクリック時の処理
